@@ -1,0 +1,32 @@
+<main class="results container">
+	<section>
+		<div class="chosen-restaurant" ng-if="resultsCtrl.chosenRestaurant">
+			<h1>Results - Chosen Restaurant</h1>
+			<div class="restaurant">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{::resultsCtrl.chosenRestaurant.name}}</div>
+					<div class="panel-body">
+						<div class="image" style="background-image: url({{resultsCtrl.chosenRestaurant.image}});">
+						</div>
+						<div class="votes">Votes: {{::resultsCtrl.chosenRestaurant.votes}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="title" ng-if="!resultsCtrl.chosenRestaurant">
+			<h1>Results so far</h1>
+		</div>
+		<ul class="restaurants" ng-if="!resultsCtrl.chosenRestaurant">
+			<li class="restaurant" ng-repeat="restaurant in resultsCtrl.restaurants | orderBy: '-votes' track by restaurant.id">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{::restaurant.name}}</div>
+					<div class="panel-body">
+						<div class="image" style="background-image: url({{restaurant.image}});">
+						</div>
+						<div class="votes">Votes: {{restaurant.votes}}</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</main>

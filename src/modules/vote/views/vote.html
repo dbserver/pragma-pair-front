@@ -1,0 +1,23 @@
+<main class="vote container">
+	<section>
+		<div class="title">
+			<h1>Choose a restaurant</h1>
+		</div>
+		<div class="alert alert-dismissible" role="alert" ng-if="voteCtrl.message" ng-class="{ 'alert-danger' : voteCtrl.message.error, 'alert-success' : !voteCtrl.message.error}">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="voteCtrl.removeMessage()"><span aria-hidden="true">&times;</span></button>
+			<span class="message">{{voteCtrl.message.message}}</span>
+		</div>
+		<ul class="restaurants">
+			<li class="restaurant" ng-repeat="restaurant in voteCtrl.restaurants track by restaurant.id">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{restaurant.name}}</div>
+					<div class="panel-body">
+						<div class="image" style="background-image: url({{restaurant.image}});">
+						</div>
+						<a class="vote" ng-click="voteCtrl.vote(restaurant.id)">Vote now</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</main>
