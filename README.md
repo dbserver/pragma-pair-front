@@ -44,3 +44,8 @@ Original Code Challenge: [Original Code Challenge](CHALLENGE.md)
 `npm run test`
 
 `http://localhost:8080/compiled`
+
+
+for running a complete environment for this solution, you need to run this server together with front end code:
+
+https://github.com/dbserver/pragma-pair-back
